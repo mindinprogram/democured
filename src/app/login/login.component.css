@@ -1,0 +1,26 @@
+mat-card
+{
+    width:50%;height:30%;
+    /* opacity: 0.5;
+  //  background-image: url(/assets/images/bg.jpg); */
+}
+mat-form-field
+{
+    width:200px;
+}
+mat-toolbar
+  {
+      width:100%;
+      padding:0;
+  }
+
+  #sec
+  {
+   margin-top:0px;
+  }
+  .img
+  {
+    width: 100px;
+    height: 100px;
+  }
+  

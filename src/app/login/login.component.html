@@ -1,0 +1,54 @@
+
+<div class="container card" fxLayoutAlign="center">
+    <mat-card> 
+     <!--<mat-card-header><h3>Login</h3></mat-card-header> -->
+     <mat-card-content>
+   
+   <div  fxLayout="row" fxLayout.xs="column" fxLayoutWrap fxLayoutGap="10%" >
+     <div fxFlex="50%" style="padding: 15px;">
+       <img mat-card-image class="img" src="/assets/image/login.png" >
+     </div>
+     <div fxFlex="40%" > 
+       <div [ngStyle]="{'float':'right'}">
+            
+         <button  mat-button  color="accent">Create your account -></button>
+         <!-- <button mat-button (click)="openDialog()">Create your account -></button> -->
+       </div>
+       <mat-card-header><h2 [ngStyle]="{'margin-left':'43px','margin-top':'90px'}">Login</h2></mat-card-header><br>
+      
+       <div class="sec">
+           <form  [formGroup]="login" (ngSubmit)="onSubmit()">
+            <mat-form-field >
+              <mat-label>UserName</mat-label>
+              <input type="text" matInput  formControlName="username">
+            <mat-error>  
+              <span   *ngIf=" username.invalid && username.touched"> 
+                <span  *ngIf="login.hasError('required','username')">Username is <strong>required</strong></span>
+             </span>
+           </mat-error>  
+          </mat-form-field><br/>
+            <mat-form-field >
+              <mat-label>Password</mat-label>
+              <input matInput [type]="hide ? 'password' : 'text'" formControlName="pwd">
+              <button mat-icon-button matSuffix (click)="hide = !hide"  [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+              </button>
+                   <mat-error *ngIf=" pwd.invalid && pwd.touched">
+                      <span  *ngIf="login.hasError('required','pwd')">Password is <strong>required</strong></span>
+                  </mat-error> 
+            </mat-form-field><br>   
+             <a mat-button color="primary" [ngStyle]="{'padding':'0px'}" routerLink="/forgotpwd">Forget Password ?</a>
+             <button mat-raised-button type="submit" color="primary"  [ngStyle]="{'float':'right','margin-right':'65px'}">Login</button>
+             <!-- [disabled]="login.invalid" -->
+            </form>  
+            
+              
+      
+     </div>
+    
+   </div>
+   </div>
+   </mat-card-content>
+   
+   </mat-card>
+   </div>

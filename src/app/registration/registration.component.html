@@ -1,0 +1,79 @@
+<!-- <div class="myBox" ng-click="changeBackgroundColor()">sdfsdfsdfsdagasdgasdgasdg</div> -->
+<div [ngStyle]="{'background-color': usercolor }">
+  <mat-form-field >
+    <mat-label>Choose your color</mat-label>
+    <input matInput type="text" [(ngModel)]="usercolor" >
+   
+  </mat-form-field>
+  
+</div>  
+<form [formGroup]="register" (ngSubmit)="onSubmit()"  class="example-form">
+    <mat-form-field >
+        <mat-label>First Name</mat-label>
+        <input type="text" matInput formControlName="firstname">
+        <mat-error>  
+          <span   *ngIf=" firstname.invalid && firstname.touched">
+            <span  *ngIf="register.hasError('required','firstname')">Firstname is <strong>required</strong></span>
+            <span  *ngIf="register.hasError('pattern','firstname')">Only alphabet are allowed</span>
+         </span>
+       </mat-error> 
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Last Name</mat-label>
+        <input type="text" matInput  formControlName="lastname" >
+        <mat-error>  
+          <span   *ngIf=" lastname.invalid && lastname.touched">
+            <span  *ngIf="register.hasError('required','lastname')">Lastname is <strong>required</strong></span>
+            <span  *ngIf="register.hasError('pattern','lastname')">Only alphabet are allowed</span>
+         </span>
+       </mat-error> 
+      </mat-form-field>
+      <mat-form-field >
+        <mat-label>Email</mat-label>
+        <input type="email" matInput  formControlName="emailadd" placeholder="Ex. pat@example.com">
+        <mat-error>  
+          <span   *ngIf="emailadd.invalid && emailadd.touched">
+            <span  *ngIf="register.hasError('required','emailadd')">Email address <strong>required</strong></span>
+            <span  *ngIf="register.hasError('email','emailadd')">Invalid email address</span>
+         </span>
+       </mat-error> 
+      </mat-form-field>
+    <mat-form-field >
+      <mat-label>UserName</mat-label>
+      <input type="text" matInput  formControlName="username" >
+      <mat-error>  
+        <span   *ngIf="username.invalid && username.touched">
+          <span  *ngIf="register.hasError('required','username')">Username<strong>required</strong></span>
+        </span>
+     </mat-error> 
+    </mat-form-field>
+    <mat-form-field >
+      <mat-label>Password</mat-label>
+        <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+        <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+        </button>
+        <mat-error>  
+          <span   *ngIf="password.invalid && password.touched">
+            <span  *ngIf="register.hasError('required','password')">password <strong>required</strong></span>
+            <span  *ngIf="register.hasError('minlength','password')">Minimum Length is 6</span>
+            <span  *ngIf="register.hasError('maxlength','password')">maximum Length is 12</span>
+         </span>
+       </mat-error>
+      </mat-form-field><br/>
+   
+      <mat-form-field >
+        <mat-label>Mobile number</mat-label>
+        <input type="number" matInput  formControlName="phoneno" placeholder="9876543210">
+        <mat-error>  
+          <span   *ngIf="phoneno.invalid && phoneno.touched">
+            <span  *ngIf="register.hasError('required','phoneno')">Phone Number <strong>required</strong></span>
+            <span  *ngIf="register.hasError('pattern','phoneno')">only number are allowed</span>
+            
+         </span>
+       </mat-error>
+      </mat-form-field>
+  
+
+<button type="submit" class="btn btn-primary" [disabled]="register.invalid"> Sign Up</button>
+</form>

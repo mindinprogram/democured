@@ -1,0 +1,13 @@
+<p>Lazy load logins works!</p>
+
+
+<!--Child to parent using event emitter-->
+{{count}}
+<button (click)="increase()" >Increment</button>
+<app-register [count]="count" (countchange)=updateincrease($event) ></app-register>
+<!--child to parent using viewchild-->
+<!-- {{count}}
+{{childre.count}}
+<app-register [count]="count"></app-register> -->
+
+
