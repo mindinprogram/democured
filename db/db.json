@@ -17,6 +17,15 @@
       "password": "djhjkhkj",
       "phoneno": 1234567890,
       "id": 2
+    },
+    {
+      "firstname": "sdbf",
+      "lastname": "sdfmsd",
+      "emailadd": "E@gmail.com",
+      "username": "dfmsdf",
+      "password": "djhjkhkj",
+      "phoneno": 1234567890,
+      "id": 3
     }
   ]
 }
